@@ -1,0 +1,51 @@
+1. Run the commands sort, wc and uniq on the commands.js file. Explain how they work and what the output was.
+    - sort: Sort works by sorting the specified file line by line in alphabetic order. Numbers come before 
+        letters, then letters are alphabetically sorted, lowercase letters come before uppercase. 
+        Output of sort bash.js:
+                commands.evaluateCmd(userInput);
+                userInput = userInput.toString().trim();
+            const commands = require('./commands.js');
+            process.stdin.on('data', (userInput) => {
+            process.stdout.write('prompt > ');
+            })
+    - wc: The wc command (word count) finds the line count, word count, and byte and character count in the 
+        specified file. 
+        Output for wc bash.js:
+            7      16     206 bash.js
+    - uniq: The uniq command filters out all repeated lines in a specified file. 
+        Output for uniq bash.js: 
+            const commands = require('./commands.js');
+
+            process.stdout.write('prompt > ');
+
+            process.stdin.on('data', (userInput) => {
+                userInput = userInput.toString().trim();
+                commands.evaluateCmd(userInput);
+            })
+
+2. Using the pipe (|) connect at least two commands and run it on commands.js. Explain what the output was and 
+why the specific data was outputted.
+    I used the command `cat commands.js | wc`, which combined the cat command with the wc command. The cat 
+    command outputs the content of the specified file, in this case commands.js, then that output was piped 
+    to the wc command, which counts the lines, words, and characters in it. The output was as follows:
+        35      73     862
+
+
+6. Given a string, reverse the order of characters in each word within a sentence while maintaining the 
+original word order and whitespace and return the string. To improve your problem-solving experience, use 
+the suggested functions to solve the problem.
+
+    function reverseString(inputString) {
+        let splitStr = inputString.split(' ');
+        let reversedArr = [];
+
+        splitStr.forEach(word => {
+            let reversed = word.split("").reverse().join("");
+            reversedArr.push(reversed);
+        });
+
+        let newStr = reversedArr.join(' ');
+        return newStr;
+    }
+
+    reverseString("I'm learning to program algorithms!")
